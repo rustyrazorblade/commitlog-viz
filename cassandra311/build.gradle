@@ -1,0 +1,9 @@
+plugins {
+    // Apply the Kotlin JVM plugin to add support for Kotlin.
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+dependencies {
+    runtimeOnly 'org.apache.cassandra:cassandra-all:3.11.4'
+
+}
