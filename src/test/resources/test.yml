@@ -1,1 +1,2 @@
 libraries: /Users/jhaddad/Dev/cassandra/lib
+commitLogs: /Users/jhaddad/Dev/cassandra/data/commitlog

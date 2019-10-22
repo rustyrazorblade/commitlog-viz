@@ -3,6 +3,7 @@
  */
 package com.rustyrazorblade.commmitlog_gui
 
+import com.rustyrazorblade.commmitlog_gui.representations.CassandraInterface
 import com.rustyrazorblade.commmitlog_gui.resources.CommitLogResource
 import io.dropwizard.Application
 import io.dropwizard.setup.Environment
@@ -10,8 +11,12 @@ import java.io.File
 
 class App : Application<MyConfig>() {
     override fun run(configuration: MyConfig, environment: Environment) {
-        val path = File("/Users/jhaddad/Dev/cassandra/data/commitlog")
-        val resource = CommitLogResource(path)
+        // create the right Cassandra
+        val path = File(configuration.commitLogs!!)
+        val cassandra = CassandraInterface.load()
+
+        val resource = CommitLogResource(cassandra, path)
+
         environment.jersey().register(resource)
     }
 }

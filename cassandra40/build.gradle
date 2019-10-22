@@ -12,6 +12,6 @@ dependencies {
 
     implementation project(":core")
 
-    implementation 'org.apache.cassandra:cassandra-all:3.11.4'
+    implementation 'org.apache.cassandra:cassandra-all:4.0-alpha1'
 
 }

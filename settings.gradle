@@ -9,4 +9,6 @@
 
 rootProject.name = 'commitlog-gui'
 
+include "core"
 include "cassandra311"
+//include "cassandra40"
