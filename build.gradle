@@ -61,7 +61,9 @@ dependencies {
 
     // Use the Kotlin JDK 8 standard library.
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
-    implementation 'io.dropwizard:dropwizard-core:2.0.0-rc11'
+
+    implementation 'io.dropwizard:dropwizard-core:2.0.0-rc12'
+    implementation 'io.dropwizard:dropwizard-assets:2.0.0-rc12'
 
     cassandra311 project(":cassandra311")
     cassandra311 project(":cassandra40")
@@ -86,7 +88,7 @@ run {
 def run311 = tasks.register("run311", JavaExec) {
     main = application.mainClassName
     classpath = sourceSets.main.runtimeClasspath + configurations.cassandra311
-    args = ['server', 'src/test/resources/test.yml']
+    args = ['server', 'config/test.yml']
 }
 
 def packageCassandra3 = tasks.register("packageCassandra3", Deb) {

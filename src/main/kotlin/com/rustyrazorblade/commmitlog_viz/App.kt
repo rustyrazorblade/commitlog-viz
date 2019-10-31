@@ -6,6 +6,8 @@ package com.rustyrazorblade.commmitlog_gui
 import com.rustyrazorblade.commmitlog_gui.representations.CassandraFactory
 import com.rustyrazorblade.commmitlog_gui.resources.CommitLogResource
 import io.dropwizard.Application
+import io.dropwizard.assets.AssetsBundle
+import io.dropwizard.setup.Bootstrap
 import io.dropwizard.setup.Environment
 import java.io.File
 
@@ -18,6 +20,11 @@ class App : Application<MyConfig>() {
         val resource = CommitLogResource(cassandra)
 
         environment.jersey().register(resource)
+    }
+
+    override fun initialize(bootstrap: Bootstrap<MyConfig>) {
+        val assets = AssetsBundle("/com/rustyrazorblade/commitlog_viz/assets/", "/")
+        bootstrap.addBundle(assets)
     }
 }
 
